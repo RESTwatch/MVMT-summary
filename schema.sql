@@ -28,6 +28,3 @@ CREATE TABLE straps (
  *    mysql -u root -p < schema.sql
  *  
 */
-
-INSERT into watches (watch_id, name, series, size, price) VALUES 
-  ("안녕하새요", "an-nyeong ha-se-yo", "Hello");
