@@ -6,7 +6,7 @@ USE MVMT;
 
 CREATE TABLE watches (
   id int NOT NULL AUTO_INCREMENT,
-  watch_id int unsigned NOT NULL,
+  wid int unsigned NOT NULL,
   name varchar(50) NOT NULL,
   series varchar(50) NOT NULL,
   size int unsigned NOT NULL,
@@ -21,6 +21,10 @@ CREATE TABLE straps (
   price int unsigned NOT NULL,
   PRIMARY KEY (id)
 );
+
+CREATE TABLE watches_straps (
+
+)
 
 /*  Execute this file from the command line by typing:
  *    mysql -u <USER> < schema.sql
