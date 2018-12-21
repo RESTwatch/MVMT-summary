@@ -52,12 +52,10 @@ for (let i = 101; i < 200; i += 1) {
   const series = watchSeries[getRandomInt(0, (watchSeries.length - 1))];
   const size = sizes[getRandomInt(0, (sizes.length - 1))];
   const price = prices[getRandomInt(0, (prices.length - 1))];
-  const queryStringWatch = `INSERT INTO watches (wid, name, series, size, price) VALUES ("${i}", "${name}", "${series}", "${size}", "${price}");`;
-  connection.query(queryStringWatch, (err, results) => {
+  const queryStringWatch = `INSERT INTO watches (wid, watch_name, series, size, watch_price) VALUES ("${i}", "${name}", "${series}", "${size}", "${price}");`;
+  connection.query(queryStringWatch, (err) => {
     if (err) {
-      console.log(err);
-    } else {
-      console.log(results);
+      throw (err);
     }
   });
   const strapCount = getRandomInt(0, 5);
@@ -65,11 +63,9 @@ for (let i = 101; i < 200; i += 1) {
     for (let j = 1; j <= strapCount; j += 1) {
       const strapId = strapIds[getRandomInt(0, (strapIds.length - 1))];
       const queryStringStrap = `INSERT INTO strap_options (watch_id, strap_id) VALUES (${watchId}, ${strapId});`;
-      connection.query(queryStringStrap, (err, results) => {
+      connection.query(queryStringStrap, (err) => {
         if (err) {
-          console.log(err);
-        } else {
-          console.log(results);
+          throw (err);
         }
       });
     }
