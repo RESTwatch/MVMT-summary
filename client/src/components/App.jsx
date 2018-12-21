@@ -1,4 +1,5 @@
 import React from 'react';
+import Strap from './Strap.jsx';
 
 class App extends React.Component {
   constructor (props) {
@@ -26,13 +27,24 @@ class App extends React.Component {
   }
   
   render() {
-    const data = this.state.data;
-    if (data !== null) {
+    const spec = this.state.data;
+    if (spec !== null) {
+      const watch = spec[0];
       return (
-        <h1>{data[0].watch_name}</h1>
+        <div>
+          <div>{(watch.series).toUpperCase()} SERIES - {watch.size} MM</div>
+          <div>{(watch.watch_name).toUpperCase()}</div>
+          <div>${watch.watch_price}</div>
+          <div>Size [MM]</div>
+          <div>{watch.size}</div>
+          <div>ADD A SECOND STRAP</div>
+          <div>{spec.map(strap => {
+            return <Strap strap={strap}/>
+          })}</div>
+        </div>
       )
     } else {
-      return <div>Loading...</div>
+      return <div>Serving up some content...</div>
     }
     
   }
