@@ -11,13 +11,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('short'));
 
-app.get('/summary', (req, res) => {
-  const watchId = req.body.id;
+app.get('/api/watches/:wid/summary', (req, res) => {
+  const watchId = req.params.wid;
   db.getWatchInfo(watchId, (err, results) => {
     if (err) {
       throw err;
     } else {
-      console.log(results);
       res.send(results);
     }
   });

@@ -7,18 +7,18 @@ USE MVMT;
 CREATE TABLE watches (
   id INT NOT NULL AUTO_INCREMENT,
   wid INT unsigned NOT NULL,
-  name varchar(50) NOT NULL,
+  watch_name varchar(50) NOT NULL,
   series varchar(50) NOT NULL,
   size INT unsigned NOT NULL,
-  price INT unsigned NOT NULL,
+  watch_price INT unsigned NOT NULL,
   PRIMARY KEY (id)
 );
 
 CREATE TABLE straps (
   id INT NOT NULL auto_increment,
-  name varchar(50) NOT NULL,
-  image varchar(250) NOT NULL,
-  price INT unsigned NOT NULL,
+  strap_name varchar(50) NOT NULL,
+  strap_image varchar(250) NOT NULL,
+  strap_price INT unsigned NOT NULL,
   PRIMARY KEY (id)
 );
 
@@ -29,8 +29,8 @@ CREATE TABLE strap_options (
   FOREIGN KEY (strap_id) REFERENCES straps(id)
 );
 
-INSERT into watches (wid, name, series, size, price) VALUES (100, "Voyager Monochrome", "Voyager", 42, 145);
-INSERT into straps (name, image, price) VALUES 
+INSERT into watches (wid, watch_name, series, size, watch_price) VALUES (100, "Voyager Monochrome", "Voyager", 42, 145);
+INSERT into straps (strap_name, strap_image, strap_price) VALUES 
   ("Black Leather", "https://s3.amazonaws.com/watch-straps/BlackLeather_BlackMatte_260x.progressive.jpg", 35), 
   ("Gunmetal Link", "https://s3.amazonaws.com/watch-straps/BT01-OLGU.Back_15f2bd26-737f-4b81-acca-6894dde4e729_260x.progressive.jpg", 40),
   ("Camo Nylon", "https://s3.amazonaws.com/watch-straps/Camo_copy_260x.progressive.jpg", 30),
