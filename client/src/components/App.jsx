@@ -4,7 +4,7 @@ class App extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      data: []
+      data: null
     };
   }
 
@@ -17,14 +17,24 @@ class App extends React.Component {
         return response.json();
       })
       .then(myJson => {
-        console.log(JSON.stringify(myJson));
+        console.log(myJson);
+        this.setState({
+          wid: wid,
+          data: myJson
+        })
       })
   }
   
   render() {
+    const data = this.state.data;
+    if (data !== null) {
+      return (
+        <h1>{data[0].watch_name}</h1>
+      )
+    } else {
+      return <div>Loading...</div>
+    }
     
-    // const displayString = `Watch id on current page is: ${wid}`;
-    return <h1>'Hello'</h1>;
   }
 }
 
