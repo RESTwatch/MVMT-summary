@@ -39,7 +39,7 @@ class App extends React.Component {
           <div>{watch.size}</div>
           <div>ADD A SECOND STRAP</div>
           <div>{spec.map(strap => {
-            return <Strap strap={strap}/>
+            return <Strap strap={strap} key={strap.strap_id}/>
           })}</div>
         </div>
       )
