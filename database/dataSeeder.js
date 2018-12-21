@@ -41,14 +41,14 @@ const sizes = [39, 40, 41, 42, 43, 44, 45];
 
 const prices = [100, 110, 120, 125, 135, 140, 145, 150, 155, 175, 180, 200, 300];
 
-// const strapIds = [1, 2, 3, 4, 5];
+const strapIds = [1, 2, 3, 4, 5];
 
 function getRandomInt(min, max) {
   const minC = Math.ceil(min);
   const maxC = Math.floor(max);
   return Math.floor(Math.random() * (maxC - minC + 1)) + minC;
 }
-
+let watchId = 2;
 for (let i = 101; i < 200; i += 1) {
   const name = watchNames[getRandomInt(0, (watchNames.length - 1))];
   const series = watchSeries[getRandomInt(0, (watchSeries.length - 1))];
@@ -62,9 +62,19 @@ for (let i = 101; i < 200; i += 1) {
       console.log(results);
     }
   });
-  // const queryStringStraps = `;`;
+  const strapCount = getRandomInt(0, 5);
+  if (strapCount > 0) {
+    for (let j = 1; j <= strapCount; j += 1) {
+      const strapId = strapIds[getRandomInt(0, (strapIds.length - 1))];
+      const queryStringStrap = `INSERT INTO strap_options (watch_id, strap_id) VALUES (${watchId}, ${strapId});`;
+      connection.query(queryStringStrap, (err, results) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(results);
+        }
+      });
+    }
+  }
+  watchId += 1;
 }
-
-// INSERT INTO watches (wid, name, series, size, price) VALUES
-// (100, "Voyager Monochrome", "Voyager", 42, 145);
-// INSERT INTO strap_options (watch_id, strap_id) VALUES (1, 1), (1, 2), (1, 3);
