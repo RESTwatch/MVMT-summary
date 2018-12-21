@@ -41,8 +41,6 @@ const sizes = [39, 40, 41, 42, 43, 44, 45];
 
 const prices = [100, 110, 120, 125, 135, 140, 145, 150, 155, 175, 180, 200, 300];
 
-const strapIds = [1, 2, 3, 4, 5];
-
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -58,10 +56,23 @@ for (let i = 101; i < 200; i += 1) {
       throw (err);
     }
   });
-  const strapCount = getRandomInt(0, 5);
+  // generate number of straps between 0 and 3
+  const strapCount = getRandomInt(0, 3);
+  // eslint-disable-next-line no-loop-func
+  // const getUniqueStraps = () => {
+  //   let index = 
+  //   if (strapChoices[id]) {
+  //     return getUniqueStraps();
+  //   } else {
+  //     return index;
+  //   }
+  // }
+  const strapIds = [1, 2, 3, 4, 5];
   if (strapCount > 0) {
     for (let j = 1; j <= strapCount; j += 1) {
-      const strapId = strapIds[getRandomInt(0, (strapIds.length - 1))];
+      const index = getRandomInt(0, (strapIds.length - 1));
+      const strapId = strapIds[index];
+      strapIds.splice(index, 1);
       const queryStringStrap = `INSERT INTO strap_options (watch_id, strap_id) VALUES (${watchId}, ${strapId});`;
       connection.query(queryStringStrap, (err) => {
         if (err) {
