@@ -8,9 +8,10 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "nodemon server/index.js",
+    "server-dev": "nodemon server/index.js",
     "react-dev": "webpack -d --watch",
-    "seeddb": "mysql -u root -p < database/schema.sql && node database/dataSeeder.js"
+    "seeddb": "mysql -u root -p < database/schema.sql && node database/dataSeeder.js",
+    "start": "nodemon server/index.js | webpack -d --watch"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
