@@ -10,7 +10,7 @@
   "scripts": {
     "start": "nodemon server/index.js",
     "react-dev": "webpack -d --watch",
-    "seeddb": "mysql -u root -p < database/schema.sql"
+    "seeddb": "mysql -u root -p < database/schema.sql && node database/dataSeeder.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",

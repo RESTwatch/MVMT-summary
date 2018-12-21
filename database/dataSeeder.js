@@ -44,9 +44,7 @@ const prices = [100, 110, 120, 125, 135, 140, 145, 150, 155, 175, 180, 200, 300]
 const strapIds = [1, 2, 3, 4, 5];
 
 function getRandomInt(min, max) {
-  const minC = Math.ceil(min);
-  const maxC = Math.floor(max);
-  return Math.floor(Math.random() * (maxC - minC + 1)) + minC;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 let watchId = 2;
 for (let i = 101; i < 200; i += 1) {
