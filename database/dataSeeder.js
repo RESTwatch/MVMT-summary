@@ -56,17 +56,9 @@ for (let i = 101; i < 200; i += 1) {
       throw (err);
     }
   });
-  // generate number of straps between 0 and 3
+
   const strapCount = getRandomInt(0, 3);
-  // eslint-disable-next-line no-loop-func
-  // const getUniqueStraps = () => {
-  //   let index = 
-  //   if (strapChoices[id]) {
-  //     return getUniqueStraps();
-  //   } else {
-  //     return index;
-  //   }
-  // }
+
   const strapIds = [1, 2, 3, 4, 5];
   if (strapCount > 0) {
     for (let j = 1; j <= strapCount; j += 1) {

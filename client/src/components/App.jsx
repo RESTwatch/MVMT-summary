@@ -5,7 +5,9 @@ class App extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      data: null
+      wid: null,
+      watchSpec: null,
+      strapSpec: null
     };
   }
 
@@ -21,24 +23,25 @@ class App extends React.Component {
         console.log(myJson);
         this.setState({
           wid: wid,
-          data: myJson
+          watchSpec: myJson[0][0],
+          strapSpec: myJson[1]
         })
       })
   }
   
   render() {
-    const spec = this.state.data;
-    if (spec !== null) {
-      const watch = spec[0];
+    const watchSpec = this.state.watchSpec;
+    console.log('watch: ', watchSpec);
+    if (watchSpec !== null) {
       return (
         <div>
-          <div>{(watch.series).toUpperCase()} SERIES - {watch.size} MM</div>
-          <div>{(watch.watch_name).toUpperCase()}</div>
-          <div>${watch.watch_price}</div>
+          <div>{(watchSpec.series).toUpperCase()} SERIES - {watchSpec.size} MM</div>
+          <div>{(watchSpec.watch_name).toUpperCase()}</div>
+          <div>${watchSpec.watch_price}</div>
           <div>Size [MM]</div>
-          <div>{watch.size}</div>
+          <div>{watchSpec.size}</div>
           <div>ADD A SECOND STRAP</div>
-          <div>{spec.map(strap => {
+          <div>{this.state.strapSpec.map(strap => {
             return <Strap strap={strap} key={strap.strap_id}/>
           })}</div>
         </div>
