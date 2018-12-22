@@ -34,7 +34,6 @@ class App extends React.Component {
     console.log('watch: ', watchSpec);
     if (watchSpec !== null) {
       return (
-        // <div>Hi</div>
         <div>
           <div>{(watchSpec.series).toUpperCase()} SERIES - {watchSpec.size} MM</div>
           <div>{(watchSpec.watch_name).toUpperCase()}</div>
