@@ -1,3 +1,17 @@
-body {
+.summary-body {
   font-family: 'Didact Gothic', sans-serif;
+}
+
+.summary-cart {
+  background-color: black;
+  color: #fff;
+  height: 40px;
+  width: 300px;
+  text-align: center;
+  padding-top: 20px;
+  font-weight: 100;
+}
+
+.summary-giftbox {
+  font-size: 10px;
 }
