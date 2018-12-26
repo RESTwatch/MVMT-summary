@@ -1,6 +1,6 @@
 import React from 'react';
 import StrapLoader from './StrapLoader.jsx';
-// import styles from '../../public/styles.css';
+import styles from '../../public/styles.css';
 
 class App extends React.Component {
   constructor (props) {
