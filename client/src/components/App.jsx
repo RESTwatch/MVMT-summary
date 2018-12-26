@@ -1,5 +1,6 @@
 import React from 'react';
-import Strap from './Strap.jsx';
+import StrapLoader from './StrapLoader.jsx';
+import styles from '../../public/styles.css';
 
 class App extends React.Component {
   constructor (props) {
@@ -20,7 +21,6 @@ class App extends React.Component {
         return response.json();
       })
       .then(myJson => {
-        console.log(myJson);
         this.setState({
           wid: wid,
           watchSpec: myJson[0][0],
@@ -31,8 +31,8 @@ class App extends React.Component {
   
   render() {
     const watchSpec = this.state.watchSpec;
-    console.log('watch: ', watchSpec);
     if (watchSpec !== null) {
+      const hasStraps = Boolean(this.state.strapSpec.length);
       return (
         <div>
           <div>{(watchSpec.series).toUpperCase()} SERIES - {watchSpec.size} MM</div>
@@ -40,10 +40,15 @@ class App extends React.Component {
           <div>${watchSpec.watch_price}</div>
           <div>Size [MM]</div>
           <div>{watchSpec.size}</div>
-          <div>ADD A SECOND STRAP</div>
-          <div>{this.state.strapSpec.map(strap => {
-            return <Strap strap={strap} key={strap.strap_id}/>
-          })}</div>
+          <StrapLoader hasStraps={hasStraps} strapSpec={this.state.strapSpec}/>
+          <div>
+              <img/>
+              <div className="summary-giftbox">
+                <h4>FREE GIFT BOX!</h4>
+                <p>ORDER A WATCH AND STRAP AND IT WILL ARRIVE PACKAGED IN A LIMITED EDITION GIFT BOX.</p>
+              </div>
+          </div>
+          <div className="summary-cart">ADD TO CART</div>
         </div>
       )
     } else {
