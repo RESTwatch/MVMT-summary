@@ -11,7 +11,10 @@
     "server-dev": "nodemon server/index.js",
     "react-dev": "webpack -d --watch",
     "seeddb": "mysql -u root -p < database/schema.sql && node database/dataSeeder.js",
-    "start": "nodemon server/index.js | webpack -d --watch"
+    "start": "nodemon server/index.js | webpack -d --watch",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "test:coverage": "jest --coverage --colors"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -26,14 +29,26 @@
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.2.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
     "css-loader": "^2.1.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
     "eslint": "^5.10.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "eslint-plugin-import": "^2.14.0",
+    "jest": "^23.6.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.28.0",
     "webpack-cli": "^3.1.2"
