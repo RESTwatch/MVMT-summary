@@ -6,8 +6,9 @@ const StrapLoader = props => {
   return (
     <div>
       { hasStraps ?
-        <div>
-          <div>ADD A SECOND STRAP</div>
+        <div className="summary-strap-container">
+          <span id="summary-strap-number">ADD A SECOND STRAP</span>
+          <span id="summary-strap-guide">STRAP GUIDE</span>
           <div>
             {props.strapSpec.map(strap => {
               return <Strap strap={strap} key={strap.strap_id}/>
