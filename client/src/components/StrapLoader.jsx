@@ -6,9 +6,15 @@ const StrapLoader = props => {
   return (
     <div>
       { hasStraps ?
-        <div>
-          <div>ADD A SECOND STRAP</div>
-          <div>
+        <div className="summary-strap-container">
+          <div className="summary-strap-title">
+            <span id="summary-strap-number">ADD A SECOND STRAP</span>
+            <span id="summary-strap-guide">
+              <img id="summary-question-mark" src="https://s3.amazonaws.com/watch-straps/question-mark.png"/>
+              <span>STRAP GUIDE</span>
+            </span>
+          </div>
+          <div className="summary-strap-options-container">
             {props.strapSpec.map(strap => {
               return <Strap strap={strap} key={strap.strap_id}/>
             })}

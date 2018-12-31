@@ -35,19 +35,12 @@ class App extends React.Component {
       const hasStraps = Boolean(this.state.strapSpec.length);
       return (
         <div>
-          <div>{(watchSpec.series).toUpperCase()} SERIES - {watchSpec.size} MM</div>
-          <div>{(watchSpec.watch_name).toUpperCase()}</div>
-          <div>${watchSpec.watch_price}</div>
-          <div>Size [MM]</div>
-          <div>{watchSpec.size}</div>
+          <div className="summary-series">{(watchSpec.series).toUpperCase()} SERIES - {watchSpec.size} MM</div>
+          <div className="summary-watch-name">{(watchSpec.watch_name).toUpperCase()}</div>
+          <div className="summary-price">${watchSpec.watch_price}</div>
+          <div className="summary-size">Size [MM]</div>
+          <div className="summary-size-mm">{watchSpec.size}</div>
           <StrapLoader hasStraps={hasStraps} strapSpec={this.state.strapSpec}/>
-          <div>
-              <img/>
-              <div className="summary-giftbox">
-                <h4>FREE GIFT BOX!</h4>
-                <p>ORDER A WATCH AND STRAP AND IT WILL ARRIVE PACKAGED IN A LIMITED EDITION GIFT BOX.</p>
-              </div>
-          </div>
           <div className="summary-cart">ADD TO CART</div>
         </div>
       )
