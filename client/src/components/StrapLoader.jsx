@@ -1,5 +1,6 @@
 import React from 'react';
 import Strap from './Strap.jsx';
+import StrapGuide from './StrapGuide.jsx';
 
 const StrapLoader = props => {
   const hasStraps = props.hasStraps;
@@ -9,10 +10,7 @@ const StrapLoader = props => {
         <div className="summary-strap-container">
           <div className="summary-strap-title">
             <span id="summary-strap-number">ADD A SECOND STRAP</span>
-            <span id="summary-strap-guide">
-              <img id="summary-question-mark" src="https://s3.amazonaws.com/watch-straps/question-mark.png"/>
-              <span>STRAP GUIDE</span>
-            </span>
+            <StrapGuide/>
           </div>
           <div className="summary-strap-options-container">
             {props.strapSpec.map(strap => {

@@ -64,6 +64,10 @@
   font-size: 11px;
   align-items: center;
 }
+#summary-strap-guide:hover {
+  cursor: pointer;
+  color: #929292;
+}
 #summary-question-mark {
   height: 15px;
   padding-right: 5px;
@@ -85,6 +89,10 @@
   padding-bottom: 30px;
 }
 
+.summary-strap-options:hover {
+  color: black;
+  cursor: pointer;
+}
 
 .summary-strap-image {
   height: 100px;
