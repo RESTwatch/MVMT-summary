@@ -45,6 +45,63 @@
   font-weight: 800;
   margin-bottom: 20px;
 }
+
+.summary-strap-container {
+  padding-top: 15px;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+#summary-strap-guide {
+  display: flex;
+  font-weight: 100;
+  font-size: 11px;
+  align-items: center;
+}
+#summary-question-mark {
+  height: 15px;
+  padding-right: 5px;
+}
+
+.summary-strap-title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+ .summary-strap-options-container {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  line-height: 1.1;
+  color: #5c5c5c;
+  padding-bottom: 30px;
+}
+
+
+.summary-strap-image {
+  height: 100px;
+  margin-bottom: 7px;
+} 
+
+.summary-strap-price {
+  font-weight: 100;
+  padding-bottom: 2px;
+}
+.summary-strap-name {
+  padding-bottom: 2px;
+}
+
+.summary-strap-checkbox {
+  border-radius: 50px;
+  border: 2px black solid;
+  height: 15px;
+  width: 15px;
+  display: inline-block;
+  margin-top: 8px;
+}
+
 .summary-cart {
   background-color: black;
   color: #fff;
@@ -52,29 +109,4 @@
   text-align: center;
   padding-top: 20px;
   font-weight: 100;
-}
-
-.summary-strap-container {
-  padding-top: 15px;
-  font-size: 12px;
-  font-weight: 400;
-  overflow: auto;
-}
-
-#summary-strap-number {
-  float: left;
-}
-
-#summary-strap-guide {
-  float: right;
-  font-weight: 100;
-}
-
-/* .summary-strap-options {
-  
-} */
-
-.summary-strap-image {
-  height: 100px;
-  display: block;
 }
