@@ -6,6 +6,7 @@
   margin: 30px;
   font-weight: 300;
   width: 350px;
+  color: #000;
 }
 
 /* ---------------- TITLE ---------------- */
@@ -115,7 +116,46 @@
   display: inline-block;
   margin-top: 8px;
 }
+/* --------------- STRAP GUIDE MODAL --------------- */
 
+.summary-strap-guide-modal {
+  text-align: center;
+}
+
+.summary-strap-guide-images {
+  display: flex;
+  justify-content: space-around;
+}
+
+.summary-strap-guide-modal img {
+  width: 200px;
+}
+
+.summary-strap-guide-modal h2 {
+  font-weight: 400;
+  letter-spacing: 2px;
+  font-size: 28px;
+}
+.summary-strap-guide-info {
+  color: #929292;
+  font-size: 1rem;
+  line-height: 1.545rem;
+  margin: 1rem auto 1.5rem;
+  max-width: 80%;
+}
+.summary-strap-step-title {
+  font-size: 24px;
+  letter-spacing: 2px;
+  padding-top: 1rem;
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+.summary-strap-step-instructions {
+  font-size: 12px;
+    max-width: 240px;
+    line-height: 18px;
+    letter-spacing: 0.5px;
+}
 /* --------------- ADD TO CART BUTTON --------------- */
 
 .summary-cart {
