@@ -9,7 +9,8 @@ class App extends React.Component {
       wid: null,
       watchSpec: null,
       strapSpec: null,
-      totalPrice: null
+      totalPrice: null,
+      selectedStraps: {}
     };
   }
 
@@ -32,20 +33,24 @@ class App extends React.Component {
           this.state.strapSpec.forEach((strapObj, i) => {
             strapObj.isSelected = false;
             strapObj.index = i;
-          }) 
+          })
         }
       })
   }
 
-  strapClickHandler(index, strapPrice) {
-    if (this.state.strapSpec[index].isSelected){
+  strapClickHandler(index, strapPrice, strapName) {
+    if (this.state.strapSpec[index].isSelected) {
+      delete this.state.selectedStraps[strapName];
       this.setState({
         totalPrice: this.state.totalPrice - strapPrice
       })
+      console.log(this.state.selectedStraps)
     } else {
+      this.state.selectedStraps[strapName] = strapName;
       this.setState({
         totalPrice: this.state.totalPrice + strapPrice
       })
+      console.log(this.state.selectedStraps)
     }
     this.state.strapSpec[index].isSelected = !this.state.strapSpec[index].isSelected;
     this.forceUpdate();
