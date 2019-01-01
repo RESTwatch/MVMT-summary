@@ -137,6 +137,13 @@
   margin-top: 8px;
 }
 
+.summary-selected-strap-names {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-right: 10px;
+}
+
 
 /* --------------- STRAP GUIDE MODAL --------------- */
 

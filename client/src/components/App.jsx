@@ -1,6 +1,7 @@
 import React from 'react';
 import StrapLoader from './StrapLoader.jsx';
 import styles from '../../public/styles.css';
+import SelectedStrapNames from './SelectedStrapNames.jsx';
 
 class App extends React.Component {
   constructor (props) {
@@ -64,6 +65,7 @@ class App extends React.Component {
         <div>
           <div className="summary-series">{(watchSpec.series).toUpperCase()} SERIES - {watchSpec.size} MM</div>
           <div className="summary-watch-name">{(watchSpec.watch_name).toUpperCase()}</div>
+          <SelectedStrapNames names={Object.keys(this.state.selectedStraps)}/>
           <div className="summary-price">${this.state.totalPrice}</div>
           <div className="summary-size">Size [MM]</div>
           <div className="summary-size-mm">{watchSpec.size}</div>
