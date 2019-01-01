@@ -9,20 +9,16 @@ class StrapGuide extends React.Component {
     }
   }
 
-  onOpenModal () {
-    this.setState({ open: true });
-  };
-
-  onCloseModal () {
-    this.setState({ open: false });
+  toggleModal () {
+    this.setState({ open: !this.state.open });
   };
 
   render() {
     return (
       <span id="summary-strap-guide">
         <img id="summary-question-mark" src="https://s3.amazonaws.com/watch-straps/question-mark.png"/>
-        <span onClick={this.onOpenModal.bind(this)}>STRAP GUIDE</span>
-        <Modal open={this.state.open} onClose={this.onCloseModal.bind(this)} center>
+        <span onClick={this.toggleModal.bind(this)}>STRAP GUIDE</span>
+        <Modal open={this.state.open} onClose={this.toggleModal.bind(this)} center>
           <div className="summary-strap-guide-modal">
           <h2>INTERCHANGEABLE STRAPS GUIDE</h2>
           <p className="summary-strap-guide-info">
