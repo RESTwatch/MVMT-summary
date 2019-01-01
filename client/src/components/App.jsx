@@ -45,13 +45,11 @@ class App extends React.Component {
       this.setState({
         totalPrice: this.state.totalPrice - strapPrice
       })
-      console.log(this.state.selectedStraps)
     } else {
       this.state.selectedStraps[strapName] = strapName;
       this.setState({
         totalPrice: this.state.totalPrice + strapPrice
       })
-      console.log(this.state.selectedStraps)
     }
     this.state.strapSpec[index].isSelected = !this.state.strapSpec[index].isSelected;
     this.forceUpdate();
