@@ -27,12 +27,16 @@ class App extends React.Component {
           strapSpec: myJson[1]
         })
         if(this.state.strapSpec.length){
-          this.state.strapSpec.forEach(strapObj => {
+          this.state.strapSpec.forEach((strapObj, i) => {
             strapObj.isSelected = false;
+            strapObj.index = i;
           }) 
         }
       })
-    
+  }
+
+  strapClickHandler(index) {
+    this.state.strapSpec[index].isSelected = !this.state.strapSpec[index].isSelected;
   }
   
   render() {
@@ -46,7 +50,7 @@ class App extends React.Component {
           <div className="summary-price">${watchSpec.watch_price}</div>
           <div className="summary-size">Size [MM]</div>
           <div className="summary-size-mm">{watchSpec.size}</div>
-          <StrapLoader hasStraps={hasStraps} strapSpec={this.state.strapSpec}/>
+          <StrapLoader clickHandler={this.strapClickHandler.bind(this)} hasStraps={hasStraps} strapSpec={this.state.strapSpec}/>
           <div className="summary-cart">ADD TO CART</div>
         </div>
       )

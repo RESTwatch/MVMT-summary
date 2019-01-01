@@ -9,16 +9,16 @@ const StrapLoader = props => {
       { hasStraps ?
         <div className="summary-strap-container">
           <div className="summary-strap-title">
-            <span id="summary-strap-number">ADD A SECOND STRAP</span>
+            <span id="summary-strap-number">ADD A STRAP</span>
             <StrapGuide/>
           </div>
           <div className="summary-strap-options-container">
             {props.strapSpec.map(strap => {
-              return <Strap strap={strap} key={strap.strap_id}/>
+              return <Strap strap={strap} key={strap.strap_id} clickHandler={props.clickHandler}/>
             })}
           </div> 
         </div> :
-        <div>No straps</div>
+        <div></div>
     }
     </div>
   )
