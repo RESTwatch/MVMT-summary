@@ -2,7 +2,7 @@ import React from 'react';
 
 const Strap = props => {
   const isSelected = props.strap.isSelected;
-  const handleClick = () => props.clickHandler(props.strap.index);
+  const handleClick = () => props.clickHandler(props.strap.index, props.strap.strap_price);
   return (
     <span className="summary-strap-options" onClick={handleClick}>
       {isSelected ? 

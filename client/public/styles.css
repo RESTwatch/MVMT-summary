@@ -117,7 +117,7 @@
   margin-top: 8px;
 }
 
-/* ------------------ SELECTED green: #51C96D; --------------- */
+/* -------------------- SELECTED -------------------- */
 
 .summary-strap-price-selected {
   color: #51C96D;
@@ -131,8 +131,8 @@
 .summary-strap-checkbox-selected {
   border-radius: 50px;
   background-color: #51C96D;
-  height: 18px;
-  width: 18px;
+  height: 19px;
+  width: 19px;
   display: inline-block;
   margin-top: 8px;
 }
