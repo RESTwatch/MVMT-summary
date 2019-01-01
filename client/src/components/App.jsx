@@ -26,7 +26,13 @@ class App extends React.Component {
           watchSpec: myJson[0][0],
           strapSpec: myJson[1]
         })
+        if(this.state.strapSpec.length){
+          this.state.strapSpec.forEach(strapObj => {
+            strapObj.isSelected = false;
+          }) 
+        }
       })
+    
   }
   
   render() {
