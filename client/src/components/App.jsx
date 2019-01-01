@@ -30,7 +30,7 @@ class App extends React.Component {
           strapSpec: myJson[1],
           totalPrice: myJson[0][0].watch_price
         })
-        if(this.state.strapSpec.length){
+        if (this.state.strapSpec.length) {
           this.state.strapSpec.forEach((strapObj, i) => {
             strapObj.isSelected = false;
             strapObj.index = i;

@@ -10,7 +10,7 @@ const StrapLoader = props => {
         <div className="summary-strap-container">
           <div className="summary-strap-title">
             <span id="summary-strap-number">ADD A STRAP</span>
-            <StrapGuide/>
+            <StrapGuide series={props.strapSpec[0].series}/>
           </div>
           <div className="summary-strap-options-container">
             {props.strapSpec.map(strap => {
