@@ -7,7 +7,6 @@
   font-weight: 300;
   width: 350px;
   color: #000;
-  /* green: #51C96D; */
 }
 
 /* ---------------- TITLE ---------------- */
@@ -117,6 +116,28 @@
   display: inline-block;
   margin-top: 8px;
 }
+
+/* ------------------ SELECTED green: #51C96D; --------------- */
+
+.summary-strap-price-selected {
+  color: #51C96D;
+  font-weight: 100;
+  padding-bottom: 2px;
+}
+.summary-strap-name-selected {
+  color: #51C96D;
+  padding-bottom: 2px;
+}
+.summary-strap-checkbox-selected {
+  border-radius: 50px;
+  background-color: #51C96D;
+  height: 18px;
+  width: 18px;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+
 /* --------------- STRAP GUIDE MODAL --------------- */
 
 .summary-strap-guide-modal {

@@ -37,6 +37,7 @@ class App extends React.Component {
 
   strapClickHandler(index) {
     this.state.strapSpec[index].isSelected = !this.state.strapSpec[index].isSelected;
+    this.forceUpdate();
   }
   
   render() {
