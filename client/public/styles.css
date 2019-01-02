@@ -80,7 +80,7 @@
   margin-bottom: 15px;
 }
 
- .summary-strap-options-container {
+.summary-strap-options-container {
   text-align: center;
   display: flex;
   justify-content: space-between;
@@ -116,6 +116,38 @@
   display: inline-block;
   margin-top: 8px;
 }
+
+/* -------------------- SELECTED -------------------- */
+
+.summary-strap-price-selected {
+  color: #51C96D;
+  font-weight: 100;
+  padding-bottom: 2px;
+}
+.summary-strap-name-selected {
+  color: #51C96D;
+  padding-bottom: 2px;
+}
+.summary-strap-checkbox-selected {
+  border-radius: 50px;
+  background-color: #51C96D;
+  background-image: url("//s3.amazonaws.com/watch-straps/checkmark.png");
+  background-size: contain;
+  height: 19px;
+  width: 19px;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+.summary-selected-strap-names {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-right: 8px;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
 /* --------------- STRAP GUIDE MODAL --------------- */
 
 .summary-strap-guide-modal {

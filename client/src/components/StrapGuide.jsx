@@ -22,7 +22,7 @@ class StrapGuide extends React.Component {
           <div className="summary-strap-guide-modal">
           <h2>INTERCHANGEABLE STRAPS GUIDE</h2>
           <p className="summary-strap-guide-info">
-            Modern Sport watches feature a quick-release clasp that allows you to easily swap out your strap at home…no tools required.
+            {this.props.series} watches feature a quick-release clasp that allows you to easily swap out your strap at home…no tools required.
           </p>
           <div className="summary-strap-guide-images">
             <span>
