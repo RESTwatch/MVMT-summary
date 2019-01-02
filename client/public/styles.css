@@ -131,6 +131,8 @@
 .summary-strap-checkbox-selected {
   border-radius: 50px;
   background-color: #51C96D;
+  background-image: url("//s3.amazonaws.com/watch-straps/checkmark.png");
+  background-size: contain;
   height: 19px;
   width: 19px;
   display: inline-block;
