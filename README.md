@@ -1,13 +1,13 @@
 # Project Name
 
-> Project description
+> Summary component of an item page of MVMT Watches (https://www.mvmtwatches.com/collections/all-mens-watches/products/voyager-monochrome#)
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/TheEventHandlers/MVMT-product-photos
+  - https://github.com/TheEventHandlers/MVMT-summary (this repo)
+  - https://github.com/TheEventHandlers/MVMT-reviews
+  - https://github.com/TheEventHandlers/MVMT-details-specs
 
 ## Table of Contents
 
@@ -17,9 +17,9 @@
 
 ## Usage
 
-> npm install
-> npm run seeddb
-> npm start
+- npm install
+- npm run seeddb
+- npm start
 
 ## Requirements
 
