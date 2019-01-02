@@ -17,7 +17,9 @@
 
 ## Usage
 
-> Some usage instructions
+> npm install
+> npm run seeddb
+> npm start
 
 ## Requirements
 
