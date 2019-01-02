@@ -20,5 +20,5 @@ describe('StrapGuide component', () => {
 
   it('should render the modal component', () => {
     expect(wrapper.find('Modal').length).toBeTruthy;
-  })
+  });
 });
