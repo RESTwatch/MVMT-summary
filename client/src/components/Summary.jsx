@@ -60,7 +60,7 @@ class Summary extends React.Component {
     if (watchSpec !== null) {
       const hasStraps = Boolean(this.state.strapSpec.length);
       return (
-        <div>
+        <div className="summary-body">
           <div className="summary-series">{(watchSpec.series).toUpperCase()} SERIES - {watchSpec.size} MM</div>
           <div className="summary-watch-name">{(watchSpec.watch_name).toUpperCase()}</div>
           <SelectedStrapNames names={Object.keys(this.state.selectedStraps)}/>
@@ -72,7 +72,7 @@ class Summary extends React.Component {
         </div>
       )
     } else {
-      return <div>Serving up some content...</div>
+      return <div className="summary-body">Serving up some content...</div>
     }
     
   }
