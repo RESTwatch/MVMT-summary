@@ -3,7 +3,7 @@ import StrapLoader from './StrapLoader.jsx';
 import styles from '../../public/styles.css';
 import SelectedStrapNames from './SelectedStrapNames.jsx';
 
-class App extends React.Component {
+class Summary extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -78,4 +78,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default Summary;
