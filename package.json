@@ -9,6 +9,7 @@
   },
   "scripts": {
     "server-dev": "nodemon server/index.js",
+    "docker-start": "mysql -u root -p < database/schema.sql && node database/dataSeeder.js & nodemon server/index.js",
     "react-dev": "webpack -d --watch",
     "seeddb": "mysql -u root -p < database/schema.sql && node database/dataSeeder.js",
     "start": "nodemon server/index.js | webpack -d --watch",
