@@ -1,7 +1,7 @@
 module.exports = {
-  host: '172.17.0.2',
+  host: 'localhost',
   user: 'root',
-  password: 'student',
+  password: 'password',
   database: 'MVMT',
   port: 3306,
 };

@@ -1,7 +1,34 @@
 const mysql = require('mysql');
 const mysqlConfig = require('./config.js');
-
 const connection = mysql.createConnection(mysqlConfig);
+
+const createWatchInfo = (watchId, watchName, options, callback) => {
+  let strapIds = [1, 2, 3, 4, 5];
+  let strap_id = strapIds[(Math.random().toFixed(1).split('.')[1] % 5)];
+  const queryStringWatchInfo = 
+  `INSERT INTO watches (wid, watch_name, series, size, watch_price) 
+  VALUES (
+    "${watchId}", "${watchName}", 
+    "${options.series}", "${options.size}",
+    "${options.watch_price}"
+  );`;
+  const queryStringStrapOptionsInfo = `INSERT INTO strap_options (watch_id, strap_id) VALUES ("${(watchId)}", "${(strap_id)}");`
+  connection.query(queryStringWatchInfo, (watchErr, watchRes) => {
+    if (watchErr) {
+      throw watchErr;
+    } else {
+      const resultArray = [watchRes];
+      connection.query(queryStringStrapOptionsInfo, (strapOptionsErr, strapOptionsRes) => {
+        if (strapOptionsErr) {
+          throw strapOptionsErr;
+        } else {
+          resultArray.push(strapOptionsRes);
+          callback(null, resultArray);
+        }
+      });
+    }
+  });
+};
 
 const getWatchInfo = (watchId, callback) => {
   const queryStringWatchInfo = `SELECT * FROM watches WHERE watches.wid = ${watchId};`;
@@ -23,4 +50,63 @@ const getWatchInfo = (watchId, callback) => {
   });
 };
 
-module.exports = { getWatchInfo };
+const updateWatchInfo = (watchId, watchName, callback) => {
+  const queryStringWatchInfo = 
+  `UPDATE watches SET 
+    wid = "${watchId}", 
+    watch_name = "${watchName}", 
+    series = "${options.series}", 
+    size = "${options.size}", 
+    watch_price = "${options.watch_price}"`;
+
+  const queryStringStrapOptionsInfo = 
+  `UPDATE strap_options 
+    SET strap_id = options.strap_id 
+    WHERE watch_id = "${watchId}"`;
+
+  connection.query(queryStringWatchInfo, (watchErr, watchRes) => {
+    if (watchErr) {
+      throw watchErr;
+    } else {
+      const resultArray = [watchRes];
+      connection.query(queryStringStrapOptionsInfo, (strapOptionsErr, strapOptionsRes) => {
+        if (strapErr) {
+          throw strapOptionsErr;
+        } else {
+          resultArray.push(strapOptionsRes);
+          callback(null, resultArray);
+        }
+      });
+    }
+  });
+};
+
+const deleteWatchInfo = (watchId, watchName, callback) => {
+  const queryStringWatchInfo = 
+  `DELETE FROM watches WHERE watches.wid = "${watchId}"`;
+
+  const queryStringStrapOptionsInfo = 
+  `DELETE FROM strap_options WHERE watches.wid = "${watchId}"`;
+
+  connection.query(queryStringWatchInfo, (watchErr, watchRes) => {
+    if (watchErr) {
+      throw watchErr;
+    } else {
+      const resultArray = [watchRes];
+      connection.query(queryStringStrapOptionsInfo, (strapOptionsErr, strapOptionsRes) => {
+        if (strapErr) {
+          throw strapOptionsErr;
+        } else {
+          resultArray.push(strapOptionsRes);
+          callback(null, resultArray);
+        }
+      });
+    }
+  });
+};
+
+
+module.exports.createWatchInfo = createWatchInfo;
+module.exports.getWatchInfo = getWatchInfo;
+module.exports.updateWatchInfo = updateWatchInfo;
+module.exports.deleteWatchInfo = deleteWatchInfo;
