@@ -55,24 +55,24 @@ const straps = [
   ('Tan Leather', 'https://s3.amazonaws.com/watch-straps/TanLeather_BlackBrushed_260x.progressive.jpg', 35)
 ];
 
-
 const sizes = [39, 40, 41, 42, 43, 44, 45];
 const prices = [100, 110, 120, 125, 135, 140, 145, 150, 155, 175, 180, 200, 300];
 
 const getRandomArrayElement = (arr) => {
   const randomIndex = Math.floor(Math.random() * arr.length);
-  return arr[randomIndex];
+  return JSON.stringify(arr[randomIndex]);
 };
 
 const getRandomStraps = () => {
-  let start = (Math.random().toFixed(1).split('.')[1] % 4);
-  let end = (Math.random().toFixed(1).split('.')[1] % 4);
-  let randomStraps = straps.slice(start, (end + start));
+  let length = (Math.random().toFixed(1).split('.')[1] % 4)
+  let start = (Math.random().toFixed(1).split('.')[1] % length);
+  let end = (start + length);
+  let randomStraps = JSON.stringify(straps.slice(start, end));
   return randomStraps;
 }
 
 const firstFile = {
-  id: 1,
+  id: 100,
   wid: 100,
   watch_name: 'Voyager Monochrome',
   series: 'voyager',
@@ -81,15 +81,16 @@ const firstFile = {
   strap_ids: [1, 2, 3]
 };
 
-
 fs.appendFile('/Users/miles/Desktop/Hack_reactor/sdc/MVMT-summary/database/dataGeneration/seedData1.csv', json2csv(firstFile, watchOpts));
 
-const generateCSVRecord = (wid) => {
+const generateCSVRecord = (id) => {
   let record = {};
-  record.wid = wid;
+  record.id = id;
+  record.wid = id;
   record.watch_name = getRandomArrayElement(watchNames);
   record.series = getRandomArrayElement(watchSeries);
-  record.straps = getRandomStraps();
+  record.sizes = getRandomArrayElement(sizes);
+  record.strap_ids = getRandomStraps();
   record.watch_price = getRandomArrayElement(prices);
   return json2csv(record, watchOpts);
 };
@@ -121,7 +122,7 @@ const writeRecords = (numRecords, recordsPerFile) => {
   }
   write();
 };
-writeRecords(10000000, 1000000);
+writeRecords(30000000, 2000000);
 
 
 // for (let i = 101; i < 200; i += 1) {

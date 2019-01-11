@@ -24,3 +24,6 @@ coverage
 build/
 dist/
 
+# Database seeding CSV files
+database/config.js
+
