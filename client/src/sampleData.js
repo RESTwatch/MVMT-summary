@@ -32,7 +32,7 @@ const sampleData = [
     series: 'Revolver',
     size: 42,
     watch_price: 140,
-    watch_id: 5,
+    watch_id: 5, 
     strap_id: 5,
     strap_name: 'Tan Leather',
     strap_image: 'https://s3.amazonaws.com/watch-straps/TanLeather_BlackBrushed_260x.progressive.jpg',

@@ -1,7 +1,7 @@
 module.exports = {
-  host: 'localhost',
-  user: 'root',
+  host: 'postgres://localhost',
+  user: 'miles',
   password: 'password',
-  database: 'MVMT',
-  port: 3306,
+  database: 'summary',
+  port: 5432,
 };

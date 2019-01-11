@@ -48,7 +48,7 @@ app.delete('api/watches/:wid/:name', (req, res) => {
   const watchId = req.params.wid;
   const watchName = req.params.name;
   deleteWatchInfo(watchId, watchName, req.body, () => {
-    res.send('Success deleting watch!');
+    res.send('Success watch!');
   });
 });
 
