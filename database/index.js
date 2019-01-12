@@ -53,7 +53,7 @@ const getWatchInfo = (watchId, callback) => {
           callback(null, resultArray);
         }
       });
-    }
+    };
   });
 };
 
