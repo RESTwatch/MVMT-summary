@@ -13,7 +13,7 @@ class Summary extends React.Component {
       totalPrice: null,
       selectedStraps: {}
     };
-  }
+  };
 
   componentDidMount() {
     const url = window.location.href;
