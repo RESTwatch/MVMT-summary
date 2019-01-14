@@ -7,7 +7,7 @@ const connectionOptions = {
   port: 5432,
 };
 const pool = new Pool(connectionOptions);
-pool.connect()
+pool.connect();
 
 const createWatchInfo = (watchId, watchName, options, callback) => {
   let strapIds = [1, 2, 3, 4, 5];
