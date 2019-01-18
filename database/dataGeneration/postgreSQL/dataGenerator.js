@@ -12,8 +12,8 @@ const watchFields = [
   'watch_price',
 ];
 
-const watchOpts = {watchFields, quote: "'"};
-const opts = {headers: true, quote: "'"};
+const watchOpts = {watchFields, quote: ""};
+const opts = {headers: true, quote: ""};
 
 const watchNames = [
   'Slate',
@@ -78,7 +78,7 @@ const firstWatchFile = {
   id: 100,
   wid: 100,
   watch_name: 'Voyager Monochrome',
-  unique_name: 'watch_100',
+  unique_name: 'watch100',
   series: 'Voyager',
   size: 42,
   watch_price: 145,
@@ -89,7 +89,7 @@ fs.appendFile('/Users/miles/Desktop/Hack_reactor/sdc/MVMT-summary/database/dataG
 const generateCSVRecord = (id, recordsPerFile) => {
   let record = {};
   let watchName = getRandomArrayElement(watchNames);
-  let uniqueName = 'watch_' + `${id}`;
+  let uniqueName = 'watch' + `${id}`;
   record.id = id;
   record.wid = id;
   record.watch_name = watchName;
@@ -98,7 +98,7 @@ const generateCSVRecord = (id, recordsPerFile) => {
   record.size = getRandomArrayElement(sizes);
   record.watch_price = getRandomArrayElement(prices);
 
-  let csvStr = `${record.id}, ${record.wid}, '${record.watch_name}', '${record.unique_name}', '${record.series}', ${record.size}, ${record.watch_price}` + '\n';
+  let csvStr = `${record.id}, ${record.wid}, ${record.watch_name}, ${record.unique_name}, ${record.series}, ${record.size}, ${record.watch_price}` + '\n';
   if ((i - 101) % recordsPerFile === 0) {
     return (json2csv(record, watchOpts) + '\n');
   } else {
@@ -140,13 +140,13 @@ writeRecords(10000000, 10000000);
 // writeRecords(1000, 1000);
 
 const strapOptionsFields = [
-  'watch_id',
+  'wid',
   'strap_id'
 ];
-const strapOpts = {strapOptionsFields, quote: "'"};
+const strapOpts = {strapOptionsFields, quote: ""};
 
 const firstStrapOptionsFile = {
-  watch_id: 100,
+  wid: 100,
   strap_id: 1
 };
 
@@ -156,30 +156,29 @@ let p = 2;
 let n = 101;
 let currentWatchId = 101;
 let startStrapRelTime = Date.now();
-let check = false;
 
 const generateStrapCSVRecord = (recordsPerFile) => {
 
   let strap_ids = getRandomStraps();
   let record = {};
-  record.watch_id = currentWatchId;
-  record.strap_id = (strap_ids[0]);
+  record.wid = currentWatchId;
+  record.strap_id = (strap_ids[0] || 1);
 
   let record_1 = {};
-  record_1.watch_id = currentWatchId;
+  record_1.wid = currentWatchId;
   record_1.strap_id = (strap_ids[0]);
 
   let record_2 = {};
-  record_2.watch_id = currentWatchId;
+  record_2.wid = currentWatchId;
   record_2.strap_id = (strap_ids[1]);
 
   let record_3 = {};
-  record_3.watch_id = currentWatchId;
+  record_3.wid = currentWatchId;
   record_3.strap_id = (strap_ids[2]);
   
-  let strOne = `${record_1.watch_id}, ${record_1.strap_id}` + '\n';
-  let strTwo = `${record_2.watch_id}, ${record_2.strap_id}` + '\n';
-  let strThree = `${record_3.watch_id}, ${record_3.strap_id}` + '\n';
+  let strOne = `${record_1.wid}, ${record_1.strap_id}` + '\n';
+  let strTwo = `${record_2.wid}, ${record_2.strap_id}` + '\n';
+  let strThree = `${record_3.wid}, ${record_3.strap_id}` + '\n';
   let csvStr = ``;
 
   if (strap_ids.length === 3) {
@@ -193,9 +192,9 @@ const generateStrapCSVRecord = (recordsPerFile) => {
     csvStr = `${strOne}`;
   }
 
-  if (((n - 101) % recordsPerFile === 0) || !check) {
-    check = true;
-    return (json2csv(record, opts) + '\n');
+  if (((currentWatchId - 101) % recordsPerFile === 0)) {
+    // return ('wid','strap_id' + '\n' +  `${record.wid}, ${record.strap_id}` + '\n');
+    return (json2csv(record, strapOpts) + '\n');
   } else {
     return (`${csvStr}`);
   }
@@ -229,3 +228,4 @@ const writeOptionsRecords = (numRecords, recordsPerFile) => {
   writeStrap();
 };
 writeOptionsRecords(10000000, 10000000);
+// writeOptionsRecords(1000, 1000);

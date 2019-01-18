@@ -15,8 +15,8 @@ const watchFields = [
   'strap_id3'
 ];
 
-const watchOpts = {watchFields, quote: "'"};
-const opts = {headers: true, quote: "'"};
+const watchOpts = {watchFields, quote: ""};
+const opts = {headers: true, quote: ""};
 
 const watchNames = [
   'Slate',
@@ -81,7 +81,7 @@ const firstWatchFile = {
   id: 100,
   wid: 100,
   watch_name: 'Voyager Monochrome',
-  unique_name: 'watch_100',
+  unique_name: 'watch100',
   series: 'Voyager',
   size: 42,
   watch_price: 145,
@@ -96,7 +96,7 @@ const generateCSVRecord = (id, recordsPerFile) => {
   let record = {};
   let strap_ids = getRandomStraps();
   let watchName = getRandomArrayElement(watchNames);
-  let uniqueName = 'watch_' + `${id}`;
+  let uniqueName = 'watch' + `${id}`;
   record.id = id;
   record.wid = id;
   record.watch_name = watchName;
@@ -110,13 +110,13 @@ const generateCSVRecord = (id, recordsPerFile) => {
 
   let csvStr = ``;
     if (strap_ids.length === 3) {
-      csvStr = `${record.id}, ${record.wid}, '${record.watch_name}', '${record.unique_name}', '${record.series}', ${record.size}, ${record.watch_price}, ${record.strap_id1}, ${record.strap_id2}, ${record.strap_id3}` + '\n';
+      csvStr = `${record.id}, ${record.wid}, ${record.watch_name}, ${record.unique_name}, ${record.series}, ${record.size}, ${record.watch_price}, ${record.strap_id1}, ${record.strap_id2}, ${record.strap_id3}` + '\n';
   } else if (strap_ids.length === 2) {
-    csvStr = `${record.id}, ${record.wid}, '${record.watch_name}', '${record.unique_name}', '${record.series}', ${record.size}, ${record.watch_price}, ${record.strap_id1}, ${record.strap_id2},` + '\n';
+    csvStr = `${record.id}, ${record.wid}, ${record.watch_name}, ${record.unique_name}, ${record.series}, ${record.size}, ${record.watch_price}, ${record.strap_id1}, ${record.strap_id2},` + '\n';
   } else if (strap_ids.length === 1)  {
-    csvStr = `${record.id}, ${record.wid}, '${record.watch_name}', '${record.unique_name}', '${record.series}', ${record.size}, ${record.watch_price}, ${record.strap_id1},,` + '\n';
+    csvStr = `${record.id}, ${record.wid}, ${record.watch_name}, ${record.unique_name}, ${record.series}, ${record.size}, ${record.watch_price}, ${record.strap_id1},,` + '\n';
   } else {
-    csvStr = `${record.id}, ${record.wid}, '${record.watch_name}', '${record.unique_name}', '${record.series}', ${record.size}, ${record.watch_price},,,` + '\n';
+    csvStr = `${record.id}, ${record.wid}, ${record.watch_name}, ${record.unique_name}, ${record.series}, ${record.size}, ${record.watch_price},,,` + '\n';
   }
 
   if ((i - 101) % recordsPerFile === 0) {
