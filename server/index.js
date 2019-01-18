@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
-const db = require('../database');
+// const db = require('../database');
+// const db = require('../database/dataGeneration/Cassandra/index');
 const { createWatchInfo, getWatchInfo, updateWatchInfo, deleteWatchInfo } = require('../database/index.js');
 
 const app = express();
