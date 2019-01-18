@@ -12,6 +12,7 @@ CREATE TABLE watches (
   id serial,
   wid integer PRIMARY KEY,
   watch_name TEXT NOT NULL,
+  unique_name TEXT NOT NULL,
   series TEXT NOT NULL,
   size integer NOT NULL,
   watch_price integer NOT NULL
@@ -32,7 +33,8 @@ CREATE TABLE strap_options (
 );
 
 
-INSERT INTO straps (id, strap_id, strap_name, strap_image, strap_price) VALUES (1, 1, 'Black Leather', 'https://s3.amazonaws.com/watch-straps/BlackLeather_BlackMatte_260x.progressive.jpg', 35);
+INSERT INTO straps (id, strap_id, strap_name, strap_image, strap_price) 
+  VALUES (1, 1, 'Black Leather', 'https://s3.amazonaws.com/watch-straps/BlackLeather_BlackMatte_260x.progressive.jpg', 35);
 INSERT INTO straps (id, strap_id, strap_name, strap_image, strap_price)
   VALUES (2, 2, 'Gunmetal Link', 'https://s3.amazonaws.com/watch-straps/BT01-OLGU.Back_15f2bd26-737f-4b81-acca-6894dde4e729_260x.progressive.jpg', 40);
 INSERT INTO straps (id, strap_id, strap_name, strap_image, strap_price)
@@ -42,11 +44,11 @@ INSERT INTO straps (id, strap_id, strap_name, strap_image, strap_price)
 INSERT INTO straps (id, strap_id, strap_name, strap_image, strap_price)
   VALUES (5, 5, 'Tan Leather', 'https://s3.amazonaws.com/watch-straps/TanLeather_BlackBrushed_260x.progressive.jpg', 35);
 
-COPY watches (id, wid, watch_name, series, size, watch_price) FROM '/Users/miles/Desktop/Hack_Reactor/sdc/MVMT-summary/database/dataGeneration/seedWatchData1.csv' CSV;
-COPY watches (id, wid, watch_name, series, size, watch_price) FROM '/Users/miles/Desktop/Hack_Reactor/sdc/MVMT-summary/database/dataGeneration/seedWatchData2.csv' CSV;
+COPY watches (id, wid, watch_name, unique_name, series, size, watch_price) FROM '/Users/miles/Desktop/Hack_Reactor/sdc/MVMT-summary/database/dataGeneration/seedWatchPGData1.csv' CSV HEADER;
+COPY watches (id, wid, watch_name, unique_name, series, size, watch_price) FROM '/Users/miles/Desktop/Hack_Reactor/sdc/MVMT-summary/database/dataGeneration/seedWatchPGData2.csv' CSV HEADER;
 -- COPY watches FROM '/Users/miles/Desktop/Hack_Reactor/sdc/MVMT-summary/database/dataGeneration/seedWatchData2.csv' CSV;
-COPY strap_options (wid, strap_id) FROM '/Users/miles/Desktop/Hack_Reactor/sdc/MVMT-summary/database/dataGeneration/seedStrapData1.csv' CSV;
-COPY strap_options (wid, strap_id) FROM '/Users/miles/Desktop/Hack_Reactor/sdc/MVMT-summary/database/dataGeneration/seedStrapData2.csv' CSV;
+COPY strap_options (wid, strap_id) FROM '/Users/miles/Desktop/Hack_Reactor/sdc/MVMT-summary/database/dataGeneration/seedStrapPGData1.csv' CSV HEADER;
+COPY strap_options (wid, strap_id) FROM '/Users/miles/Desktop/Hack_Reactor/sdc/MVMT-summary/database/dataGeneration/seedStrapPGData2.csv' CSV HEADER;
 -- COPY strap_options FROM '/Users/miles/Desktop/Hack_Reactor/sdc/MVMT-summary/database/dataGeneration/seedStrapData2.csv' CSV;
 
 
