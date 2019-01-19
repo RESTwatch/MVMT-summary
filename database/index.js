@@ -38,22 +38,63 @@ const createWatchInfo = (watchId, watchName, options, callback) => {
 };
 
 const getWatchInfo = (watchId, callback) => {
-  const queryStringWatchInfo = `SELECT * FROM watches WHERE watches.wid = ${watchId};`;
-  const queryStringStrapInfo = `SELECT * FROM watches, strap_options, straps WHERE watches.id = strap_options.watch_id AND straps.id = strap_options.strap_id AND watches.wid = ${watchId};`;
+
+  // SELECT name, pathfilename
+  // FROM table1
+  // NATURAL JOIN table2
+  // NATURAL JOIN table3
+  // WHERE name = 'John';
+
+// SELECT a.id, a.feature_type, b.datetime, b.file_path
+// FROM
+// (
+// SELECT id, feature_type, metadata_id FROM watches
+// UNION ALL
+// SELECT id, feature_type, metadata_id FROM straps
+// )a, metadata b
+// WHERE a.metadata_id = b.id
+
+// const queryStringWatchInfo = `
+// SELECT *
+// FROM watches a, strap_options b WHERE a.wid = b.wid
+// UNION ALL
+// SELECT *
+// FROM straps a, strap_options b WHERE a.strap_id = b.strap_id`
+// SELECT id, wid, watch_name, unique_name, series, size, watch_price
+// FROM watches a, strap_options b WHERE a.wid = b.wid
+// UNION ALL
+// SELECT id, strap_id, strap_name, strap_image, strap_price
+// FROM straps a, strap_options b WHERE a.strap_id = b.strap_id`
+
+
+  const queryStringWatchInfo = `
+  select t1.*, t2.wid, t3.strap_id, t3.strap_name, t3.strap_image, t3.strap_price
+  from watches t1 left join strap_options t2 on t1.wid = t2.wid
+  left join straps t3 on t2.strap_id=t3.strap_id where t1.wid=${watchId}`;
+  // const queryStringWatchInfo = `SELECT * FROM strap_options WHERE wid = ${watchId};`;
+  // const queryStringWatchInfo = `SELECT * FROM watches, straps WHERE wid = ${watchId} AND strap_id = ;`;
+  // const queryStringWatchInfo = `SELECT * FROM watches, straps, strap_options WHERE watches.wid = strap_options.wid AND straps.strap_id = strap_options.strap_id AND watches.wid = ${watchId};`;
   pool.query(queryStringWatchInfo, (watchErr, watchRes) => {
+
     if (watchErr) {
+      callback(watchErr);
       throw watchErr;
     } else {
-      const resultArray = [watchRes];
-      pool.query(queryStringStrapInfo, (strapErr, strapRes) => {
-        if (strapErr) {
-          throw strapErr;
-        } else {
-          resultArray.push(strapRes);
-          callback(null, resultArray);
-        }
-      });
-    };
+      // console.log('watchRES:  ', watchRes);
+      callback(null, watchRes);
+    }
+    
+    // else {
+    //   const resultArray = [watchRes];
+    //   pool.query(queryStringStrapInfo, (strapErr, strapRes) => {
+    //     if (strapErr) {
+    //       throw strapErr;
+    //     } else {
+    //       resultArray.push(strapRes);
+    //       callback(null, resultArray);
+    //     }
+    //   });
+    // };
   });
 };
 
