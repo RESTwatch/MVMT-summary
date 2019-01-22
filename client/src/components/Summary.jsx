@@ -24,11 +24,33 @@ class Summary extends React.Component {
         return response.json();
       })
       .then(myJson => {
+        console.log('myJSON ROWS:   ', myJson.rows);
+        let rows = myJson.rows;
+        let watch = rows[0];
+        let watchSpec = {
+          id: watch.id,
+          wid: watch.wid,
+          watch_name: watch.watch_name,
+          series: watch.series,
+          size: watch.size,
+          watch_price: watch.watch_price
+        }
+        let straps = [];
+        rows.forEach(row => {
+          let strap = {
+            id: row.id,
+            strap_id: row.strap_id,
+            strap_name: row.strap_name,
+            strap_image: row.strap_image,
+            strap_price: row.strap_price
+          };
+          straps.push(strap);
+        });
         this.setState({
           wid: wid,
-          watchSpec: myJson[0][0],
-          strapSpec: myJson[1],
-          totalPrice: myJson[0][0].watch_price
+          watchSpec: watchSpec,
+          strapSpec: straps,
+          totalPrice: watch.watch_price
         })
         if (this.state.strapSpec.length) {
           this.state.strapSpec.forEach((strapObj, i) => {
