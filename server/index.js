@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
@@ -23,15 +24,15 @@ app.post('/api/watches/:wid/:name', (req, res) => {
 
 app.get('/api/watches/:wid/summary', (req, res) => {
   const watchId = req.params.wid;
-  console.log('params:  ', req.params);
-  console.log('req.body:  ', req.body);
+  // console.log('params:  ', req.params);
+  // console.log('req.body:  ', req.body);
 
   getWatchInfo(watchId, (err, results) => {
     if (err) {
       console.log('ERROR:   ', err);
       throw err;
     } else {
-      console.log(results);
+      // console.log(results);
       res.status(200);
       res.send(JSON.stringify(results));    }
   });
