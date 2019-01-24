@@ -1,6 +1,6 @@
 const { Pool, Client } = require('pg');
 const connectionOptions = {
-  host: 'localhost',
+  host: '52.53.157.17',
   user: 'postgres',
   password: 'password',
   database: 'summary',
